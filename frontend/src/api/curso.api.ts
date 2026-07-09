@@ -1,6 +1,22 @@
 import type {Curso} from  "../types/curso.types";
 import { api } from "./api";
 
+export interface CourseResponse {
+    name: string;
+    code: string;
+    credits: number;
+    grade:number;
+    status: "APROBADO" | "EN CURSO" | "DESAPROBADO";
+}
+
+export interface CourseRequest {
+    name: string;
+    code: string;
+    credits: number;
+    grade:number;
+    status: "APROBADO" | "EN CURSO" | "DESAPROBADO";
+
+}
 
 export async function getCursos(): Promise<Curso[]> {
     await api.post("/api/courses", {
