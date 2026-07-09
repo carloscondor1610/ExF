@@ -7,8 +7,8 @@ interface AuthContextType {
     token: string | null;
     userName: string;
     isAuthenticated: boolean;
-    Login: (data: LoginRequest) => Promise<void>;
-    Register: (data: RegisterRequest) => Promise<void>;
+    Login: (email: string, password: string) => Promise<void>;
+    Register: (email: string, name: string, password: string) => Promise<void>;
     Logout: () => void;
 }
 
@@ -47,6 +47,8 @@ interface AuthProviderProps {
             setUserName("");
         }
 
+        const isAuthenticated = !!token;
+        
         return (
             <AuthContext.Provider value={{ token, userName, isAuthenticated, Login, Register, Logout }}>
                 {children}
@@ -65,4 +67,4 @@ interface AuthProviderProps {
 
         return context;
     }
-}
+

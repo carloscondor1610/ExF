@@ -8,7 +8,7 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 
     try {
         await Register(name, email, password);
-        navigate("/home");
+        navigate("/dashboard");
     } catch (error){
         setError("Error al registrar. Por favor, intenta de nuevo.");
     } finally {
