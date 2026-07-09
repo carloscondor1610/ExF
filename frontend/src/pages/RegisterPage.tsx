@@ -1,7 +1,15 @@
-import type {FormEvent} from "react";
+import {useState, type FormEvent} from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
+
 
 
 async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     event.preventDefault();
     setError("");
     setLoading(true);
@@ -15,4 +23,8 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         setLoading(false);
     }
     
+}
+
+export  function RegisterPage() {
+    return (<></>);
 }

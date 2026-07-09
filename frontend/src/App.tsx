@@ -1,8 +1,9 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react_router_dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider, useAuth } from "./auth/AuthContext";
 import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
+import { RegisterPage } from "./pages/RegisterPage";
 import HomePage from "./pages/DashboardPage";
+import { ProtectedRoute }from "./auth/ProtectedRoute";
 
 
 function App(){

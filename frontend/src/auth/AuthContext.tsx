@@ -60,7 +60,7 @@ interface AuthProviderProps {
     export function useAuth() {
         const context = useContext(AuthContext);
         if (!context){
-            throw new Error("useAuth debe autenticarse dentro de uthProvider");
+            throw new Error("useAuth debe autenticarse dentro de AuthProvider");
 
 
         }

@@ -1,7 +1,7 @@
 import type {FormEvent} from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import { AuthProvider } from "../auth/AuthContext";
+import type { AuthProvider } from "../auth/AuthContext";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
@@ -27,5 +27,5 @@ export default function LoginPage() {
     }
     
 
-    return ();
+    return (<></>);
 }
