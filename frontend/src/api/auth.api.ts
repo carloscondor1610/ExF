@@ -1,3 +1,4 @@
+import { data } from "react-router-dom";
 import { api } from "./api";
 export interface LoginRequest{
     email: string;
@@ -22,4 +23,10 @@ export async function LoginRequest(data: LoginRequest): Promise <AuthResponse> {
 export async function RegisterRequest(data: RegisterRequest): Promise <AuthResponse> {
     const response = await api.post<AuthResponse>("/auth/register", data);
     return response.data;
+}
+
+export async function LogoutRequest(): Promise<AuthResponse> {
+    const response = await api.post<AuthResponse>("/auth/logout", data);
+    return response.data;
+
 }

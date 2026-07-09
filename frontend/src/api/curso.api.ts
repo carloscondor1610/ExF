@@ -27,3 +27,21 @@ export async function createCurso(curso: Curso): Promise<Curso> {
     });
     return response.data;
 }
+
+export async function deleteCurso(codigo: string): Promise<void> {
+    const response = await api.delete(`/api/courses/${codigo}`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    return response.data;
+}
+
+export async function updateCurso(codigo: string, curso: Curso): Promise<Curso> {
+    const response = await api.put<Curso>(`/api/courses/${codigo}`, curso, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    return response.data;
+}

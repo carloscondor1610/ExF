@@ -33,10 +33,25 @@ api.interceptors.response.use(
 (error: AxiosError<ApiError>) => {
 
 if (error.response?.status === 401) {
+    console.log("Token inválido o expirado. Redirigiendo al login...");
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.href = '/login';
+}
+if (error.response?.status == 404) {
+    console.log("No se encontró el recurso.");
+    
+}
 
-localStorage.removeItem('token');
-localStorage.removeItem('user');
-window.location.href = '/login';
+if (error.response?.status == 400) {
+    console.log("La validacion de datos no fue correcta.");
+}
+if (error.response?.status == 409){
+    console.log("Datos duplicados (email, username), ya existe.");
+}
+
+if (error.response?.status == 500){
+    console.log("Error interno del servidor.");
 }
 return Promise.reject(error);
 }
